@@ -24,10 +24,13 @@ export default function Header() {
   //reduce cart quantity property to total price
   const totalPrice = cart
     .reduce((total, item) => total + item.price * item.quantity, 0)
-    .toLocaleString({
-      style: "currency",
-      currency: "USD",
-    });
+    .toLocaleString(
+      {
+        style: "currency",
+        currency: "USD",
+      },
+      { minimumFractionDigits: 2, maximumFractionDigits: 2 }
+    );
   const total = cart.reduce((acc, item) => acc + item.quantity, 0);
   return (
     <Box sx={{ flexGrow: 1 }}>
