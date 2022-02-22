@@ -34,7 +34,7 @@ export default function Header() {
       <AppBar position="static">
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
           <MenuItem sx={{ cursor: "pointer" }} component={Link} to={"/"}>
-            <HomeIcon />
+            <HomeIcon sx={{ marginRight: "5px" }} />
             {!isMobile && (
               <Typography variant="h6" component="div">
                 Prenomics Ecommerce
