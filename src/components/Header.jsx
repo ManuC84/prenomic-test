@@ -8,6 +8,7 @@ import { Badge, Menu, MenuItem } from "@mui/material";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useMediaQuery } from "@mui/material";
+import HomeIcon from "@mui/icons-material/Home";
 
 export default function Header() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -33,9 +34,12 @@ export default function Header() {
       <AppBar position="static">
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
           <MenuItem sx={{ cursor: "pointer" }} component={Link} to={"/"}>
-            <Typography variant="h6" component="div">
-              Prenomics Ecommerce
-            </Typography>
+            <HomeIcon />
+            {!isMobile && (
+              <Typography variant="h6" component="div">
+                Prenomics Ecommerce
+              </Typography>
+            )}
           </MenuItem>
           <div style={{ display: "flex", alignItems: "center" }}>
             <Typography variant="h6" component="div" sx={{ marginRight: 2 }}>
