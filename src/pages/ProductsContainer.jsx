@@ -6,14 +6,14 @@ import SearchBar from "../components/SearchBar";
 
 const ProductsContainer = () => {
   const [searchTerm, setSearchTerm] = React.useState("");
-  const [filteredProducts, setFilteredProducts] = React.useState([]);
+  // const [filteredProducts, setFilteredProducts] = React.useState([]);
 
-  const filterProducts = (searchTerm) => {
-    const filteredProducts = catalogue.filter((product) =>
-      product.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setFilteredProducts(filteredProducts);
-  };
+  // const filterProducts = (searchTerm) => {
+  //   const filteredProducts = catalogue.filter((product) =>
+  //     product.name.toLowerCase().includes(searchTerm.toLowerCase())
+  //   );
+  //   setFilteredProducts(filteredProducts);
+  // };
 
   return (
     <>
