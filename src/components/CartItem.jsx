@@ -11,7 +11,13 @@ const CartItem = ({ item }) => {
   return (
     <Paper sx={{ display: "flex", width: "100%", justifyContent: "space-between" }}>
       <div style={{ display: "flex" }}>
-        <img src={item.img} alt={item.name} style={{ width: 100, height: 100, marginRight: 10 }} />
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <img
+            src={item.img}
+            alt={item.name}
+            style={{ width: 100, height: 100, marginRight: 10 }}
+          />
+        </div>
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
           <Typography variant="subtitle1">{item.name}</Typography>
           <p style={{ textAlign: "center" }}>
