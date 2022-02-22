@@ -4,13 +4,19 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { Badge, Menu, MenuItem } from "@mui/material";
+import { Badge, IconButton, Menu, MenuItem } from "@mui/material";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useMediaQuery } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
+import { ColorModeContext } from "../context/ToggleColorMode";
+import { useTheme } from "@mui/material/styles";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
 
 export default function Header() {
+  const theme = useTheme();
+  const colorMode = React.useContext(ColorModeContext);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const isMobile = useMediaQuery("(max-width: 600px)");
@@ -51,6 +57,14 @@ export default function Header() {
             <Badge badgeContent={totalItems} color="secondary">
               <ShoppingCartIcon onClick={handleClick} sx={{ cursor: "pointer" }} fontSize="large" />
             </Badge>
+            <IconButton
+              aria-label={theme.palette.mode === "light" ? "Light Mode" : "Dark Mode"}
+              sx={{ ml: 1 }}
+              onClick={colorMode.toggleColorMode}
+              color="inherit"
+            >
+              {theme.palette.mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
+            </IconButton>
             <Menu
               id="basic-menu"
               anchorEl={anchorEl}

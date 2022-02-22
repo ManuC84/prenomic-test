@@ -4,10 +4,12 @@ import ProductsContainer from "./pages/ProductsContainer";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Cart from "./pages/Cart";
 import Favorites from "./pages/Favorites";
+import { CssBaseline } from "@mui/material";
 
 function App() {
   return (
     <BrowserRouter>
+      <CssBaseline />
       <Header />
       <Switch>
         <Route path="/" exact component={ProductsContainer} />
