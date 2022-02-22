@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../redux/cart";
-import { addToFavorites, toggleFavorites } from "../redux/favorites";
+import { toggleFavorites } from "../redux/favorites";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
 export default function ProductCard({ product }) {

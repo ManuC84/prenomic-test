@@ -1,4 +1,4 @@
-import { Button, Container, IconButton, Typography } from "@mui/material";
+import { Button, Container, Typography } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
 import CartItem from "../components/CartItem";
