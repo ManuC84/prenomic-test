@@ -31,7 +31,7 @@ export default function Header() {
       },
       { minimumFractionDigits: 2, maximumFractionDigits: 2 }
     );
-  const total = cart.reduce((acc, item) => acc + item.quantity, 0);
+  const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -48,7 +48,7 @@ export default function Header() {
             <Typography variant="h6" component="div" sx={{ marginRight: 2 }}>
               {cart.length > 0 && (isMobile ? <p> {totalPrice}€</p> : <p>total: {totalPrice}€</p>)}
             </Typography>
-            <Badge badgeContent={total} color="secondary">
+            <Badge badgeContent={totalItems} color="secondary">
               <ShoppingCartIcon onClick={handleClick} sx={{ cursor: "pointer" }} fontSize="large" />
             </Badge>
             <Menu
