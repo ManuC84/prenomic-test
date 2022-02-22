@@ -15,11 +15,13 @@ const CartItem = ({ item }) => {
           <img
             src={item.img}
             alt={item.name}
-            style={{ width: 100, height: 100, marginRight: 10 }}
+            style={{ width: 100, height: 100, margin: "0 10px", objectFit: "contain" }}
           />
         </div>
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
-          <Typography variant="subtitle1">{item.name}</Typography>
+          <Typography sx={{ textAlign: "center" }} variant="subtitle1">
+            {item.name}
+          </Typography>
           <p style={{ textAlign: "center" }}>
             {individualItemTotal.toLocaleString(
               {
