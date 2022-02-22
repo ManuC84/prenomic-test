@@ -44,7 +44,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const SearchBar = ({ searchTerm, setSearchTerm }) => {
+const SearchBar = ({ searchTerm, setSearchTerm, filterProducts }) => {
   return (
     <Paper sx={{ marginTop: 2 }}>
       <Toolbar>
@@ -57,6 +57,11 @@ const SearchBar = ({ searchTerm, setSearchTerm }) => {
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Search…"
             inputProps={{ "aria-label": "search" }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                filterProducts(searchTerm);
+              }
+            }}
           />
         </Search>
       </Toolbar>

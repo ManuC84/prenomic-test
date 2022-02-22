@@ -6,14 +6,23 @@ import SearchBar from "../components/SearchBar";
 
 const ProductsContainer = () => {
   const [searchTerm, setSearchTerm] = React.useState("");
-  // const [filteredProducts, setFilteredProducts] = React.useState([]);
+  const [filteredProducts, setFilteredProducts] = React.useState(catalogue);
+  console.log(filteredProducts);
 
-  // const filterProducts = (searchTerm) => {
-  //   const filteredProducts = catalogue.filter((product) =>
-  //     product.name.toLowerCase().includes(searchTerm.toLowerCase())
-  //   );
-  //   setFilteredProducts(filteredProducts);
-  // };
+  const filterProducts = (searchTerm) => {
+    const filteredProducts = catalogue.filter((product) =>
+      product.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredProducts(filteredProducts);
+  };
+
+  React.useEffect(() => {
+    if (!searchTerm) {
+      setFilteredProducts(catalogue);
+    } else {
+      filterProducts(searchTerm);
+    }
+  }, [searchTerm]);
 
   return (
     <>
@@ -23,12 +32,16 @@ const ProductsContainer = () => {
         </Typography>
       </div>
       <Container sx={{ display: "flex", justifyContent: "center" }}>
-        <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+        <SearchBar
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          filterProducts={filterProducts}
+        />
       </Container>
       <Container
         sx={{ marginTop: 10, display: "flex", flexWrap: "wrap", gap: 10, justifyContent: "center" }}
       >
-        {catalogue.map((product) => (
+        {filteredProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </Container>
