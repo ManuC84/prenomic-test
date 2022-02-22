@@ -9,20 +9,33 @@ import { removeAllFromCart } from "../redux/cart";
 const Cart = () => {
   const { cart } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+  const totalPrice = cart
+    .reduce((total, item) => total + item.price * item.quantity, 0)
+    .toLocaleString(
+      {
+        style: "currency",
+        currency: "USD",
+      },
+      { minimumFractionDigits: 2, maximumFractionDigits: 2 }
+    );
+
   return (
     <Container sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
       <Typography sx={{ marginTop: 5 }} variant="h4">
         Your Items
       </Typography>
       {cart.length > 0 && (
-        <Button
-          onClick={() => dispatch(removeAllFromCart())}
-          sx={{ marginTop: 5 }}
-          variant="outlined"
-          startIcon={<DeleteIcon />}
-        >
-          Remove all items from cart
-        </Button>
+        <>
+          <Typography variant="subtitle1">Total Price: €{totalPrice}</Typography>
+          <Button
+            onClick={() => dispatch(removeAllFromCart())}
+            sx={{ marginTop: 5 }}
+            variant="outlined"
+            startIcon={<DeleteIcon />}
+          >
+            Remove all items from cart
+          </Button>
+        </>
       )}
       <Container
         sx={{
