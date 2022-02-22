@@ -39,7 +39,14 @@ const ProductsContainer = () => {
         />
       </Container>
       <Container
-        sx={{ marginTop: 10, display: "flex", flexWrap: "wrap", gap: 10, justifyContent: "center" }}
+        sx={{
+          marginTop: 10,
+          marginBottom: 10,
+          display: "flex",
+          flexWrap: "wrap",
+          gap: 10,
+          justifyContent: "center",
+        }}
       >
         {filteredProducts.map((product) => (
           <ProductCard key={product.id} product={product} />

@@ -11,7 +11,14 @@ const Favorites = () => {
         Your Favorites
       </Typography>
       <Container
-        sx={{ marginTop: 10, display: "flex", flexWrap: "wrap", gap: 10, justifyContent: "center" }}
+        sx={{
+          marginTop: 10,
+          marginBottom: 10,
+          display: "flex",
+          flexWrap: "wrap",
+          gap: 10,
+          justifyContent: "center",
+        }}
       >
         {favorites.length > 0 ? (
           favorites.map((item) => <ProductCard key={item.id} product={item} />)
