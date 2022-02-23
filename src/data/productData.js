@@ -1,14 +1,14 @@
 export const catalogue = [
   {
     id: 1,
-    img: "/images/ben-and-jerry.jpg",
+    img: "/images/benjerry.jpg",
     name: "Ben and Jerry",
     price: 5.95,
     category: "congelados",
   },
   {
     id: 2,
-    img: "/images/caffelatte.png",
+    img: "/images/caffelatte.jpg",
     name: "Cafelatte",
     price: 1.27,
     category: "frescos",
@@ -24,7 +24,7 @@ export const catalogue = [
   },
   {
     id: 4,
-    img: "/images/evax.jpeg",
+    img: "/images/evax.jpg",
     name: "Evax",
     price: 2.4,
     category: "limpieza y hogar",
